@@ -28,7 +28,7 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
-    annotate-models (1.0.4)
+    annotate (2.4.0)
     arel (2.0.10)
     builder (2.1.2)
     erubis (2.6.6)
@@ -42,7 +42,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    polyglot (0.3.1)
+    polyglot (0.3.2)
     rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -62,18 +62,19 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
-    sqlite3 (1.3.3)
+    sqlite3 (1.3.4-x86-mingw32)
     thor (0.14.6)
-    treetop (1.4.9)
-      polyglot (>= 0.2.5)
-    tzinfo (0.3.27)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.29)
     will_paginate (3.0.pre2)
 
 PLATFORMS
-  ruby
+  x86-mingw32
 
 DEPENDENCIES
-  annotate-models (= 1.0.4)
+  annotate
   faker (= 0.3.1)
   gravatar_image_tag (= 1.0.0.pre2)
   rails (= 3.0.7)
