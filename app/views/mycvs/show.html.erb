@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @mycv.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @mycv.user_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @mycv.type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_mycv_path(@mycv) %> |
+<%= link_to 'Back', mycvs_path %>

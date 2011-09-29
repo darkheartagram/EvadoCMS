@@ -1,0 +1,21 @@
+<h1>Frequency Asked Questions</h1>
+
+<ul class="faq">
+
+<% @faqs.each do |faq| %>
+<li class="faq-question<%= faq.pririty %>">
+    <b><%= faq.question %></b>
+</li>
+    <p class="faq-answer<%= faq.pririty %>"><%= faq.answer %></p>
+    <ul class="admin-nav admin-nav-faq">
+	<li><%= link_to 'Show', faq %></li>
+    	<li><%= link_to 'Edit', edit_faq_path(faq) %></li>
+    <li><%= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete %></li>
+	</ul>
+
+<% end %>
+</ul>
+
+<br />
+
+<%= link_to 'New Faq', new_faq_path %>

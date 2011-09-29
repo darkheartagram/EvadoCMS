@@ -1,0 +1,24 @@
+<h1>Listing category_cvs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @category_cvs.each do |category_cv| %>
+  <tr>
+    <td><%= category_cv.name %></td>
+    <td><%= link_to 'Show', category_cv %></td>
+    <td><%= link_to 'Edit', edit_category_cv_path(category_cv) %></td>
+    <td><%= link_to 'Destroy', category_cv, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Category cv', new_category_cv_path %>

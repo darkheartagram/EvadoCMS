@@ -1,4 +1,14 @@
 Praca::Application.routes.draw do
+  resources :cv_entries
+
+  resources :category_cvs
+
+  resources :faqs
+
+  resources :mycvs
+
+  resources :cvs
+
 	resources :users do
     member do
       get :following, :followers
@@ -6,6 +16,10 @@ Praca::Application.routes.draw do
   end
 
   resources :users
+  resources :faqs
+  resources :mycvs
+  resources :category_cvs
+  resources :cv_entries
   resources :sessions,      :only => [:new, :create, :destroy]
   resources :microposts,    :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]

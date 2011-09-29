@@ -10,7 +10,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605141110) do
+ActiveRecord::Schema.define(:version => 20110929202940) do
+
+  create_table "category_cvs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cv_entries", :force => true do |t|
+    t.string   "entry"
+    t.integer  "category_id"
+    t.string   "class"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cvs", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "faqs", :force => true do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.integer  "pririty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -20,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20110605141110) do
   end
 
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
+
+  create_table "mycvs", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"

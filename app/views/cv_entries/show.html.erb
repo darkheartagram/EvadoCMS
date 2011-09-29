@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Entry:</b>
+  <%= @cv_entry.entry %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @cv_entry.category_id %>
+</p>
+
+<p>
+  <b>Class:</b>
+  <%= @cv_entry.class %>
+</p>
+
+
+<%= link_to 'Edit', edit_cv_entry_path(@cv_entry) %> |
+<%= link_to 'Back', cv_entries_path %>
