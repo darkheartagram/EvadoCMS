@@ -1,0 +1,2 @@
+module CvEntriesHelper
+end

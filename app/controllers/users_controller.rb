@@ -15,9 +15,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html do
+	    @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
+	end
+      format.pdf do
+          
+	    @user = User.find(params[:id])
+   	 @microposts = @user.microposts.paginate(:page => params[:page])
+    	@title = @user.name
+	@example_text = @microposts
+          render :pdf => "file_name",
+                 :template => 'users/show.pdf.erb',
+                 :layout => 'pdf',
+
+      end
+    end
+
+
+
   end
   
   def new

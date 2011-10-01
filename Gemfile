@@ -6,11 +6,12 @@ gem 'rails', '3.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'rake', '0.8.7'
 gem 'sqlite3'
+gem 'wicked_pdf'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 
 group :development do
-  gem 'annotate-models', '1.0.4'
+  gem 'annotate'#, '1.0.4'
   gem 'faker', '0.3.1'
 end
 

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entry: MyString
+  category_id: 1
+  class: MyString
+
+two:
+  entry: MyString
+  category_id: 1
+  class: MyString
