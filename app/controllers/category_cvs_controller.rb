@@ -1,83 +1,79 @@
 class CategoryCvsController < ApplicationController
-  # GET /category_cvs
-  # GET /category_cvs.xml
+  # GET /cvs/1/category_cvs
   def index
-    @category_cvs = CategoryCv.all
+    # For URL like /cvs/1/category_cvs
+    # Get the cv with id=1
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @category_cvs }
-    end
+    # Access all category_cvs for that cv
+    @category_cvs = @cv.category_cvs
   end
 
-  # GET /category_cvs/1
-  # GET /category_cvs/1.xml
+  # GET /cvs/1/category_cvs/2
   def show
-    @category_cv = CategoryCv.find(params[:id])
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @category_cv }
-    end
+    # For URL like /cvs/1/category_cvs/2
+    # Find an category_cv in cvs 1 that has id=2
+    @category_cv = @cv.category_cvs.find(params[:id])
   end
 
-  # GET /category_cvs/new
-  # GET /category_cvs/new.xml
+  # GET /cvs/1/category_cvs/new
   def new
-    @category_cv = CategoryCv.new
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @category_cv }
-    end
+
+    # Associate an category_cv object with cv 1
+    @category_cv = @cv.category_cvs.build
   end
 
-  # GET /category_cvs/1/edit
-  def edit
-    @category_cv = CategoryCv.find(params[:id])
-  end
-
-  # POST /category_cvs
-  # POST /category_cvs.xml
+  # POST /cvs/1/category_cvs
   def create
-    @category_cv = CategoryCv.new(params[:category_cv])
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      if @category_cv.save
-        format.html { redirect_to(@category_cv, :notice => 'Category cv was successfully created.') }
-        format.xml  { render :xml => @category_cv, :status => :created, :location => @category_cv }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @category_cv.errors, :status => :unprocessable_entity }
-      end
+    # For URL like /cvs/1/category_cvs
+    # Populate an category_cv associate with cv 1 with form data
+    # cv will be associated with the category_cv
+    @category_cv = @cv.category_cvs.build(params[:category_cv])
+    if @category_cv.save
+      # Save the category_cv successfully
+      redirect_to cv_category_cv_path(@cv, @category_cv)
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /category_cvs/1
-  # PUT /category_cvs/1.xml
+  # GET /cvs/1/category_cvs/2/edit
+  def edit
+    @cv = Cv.find(params[:cv_id])
+
+    # For URL like /cvs/1/category_cvs/2/edit
+    # Get category_cv id=2 for cv 1
+    @category_cv = @cv.category_cvs.find(params[:id])
+  end
+
+  # PUT /cvs/1/category_cvs/2
   def update
+    @cv = cv.find(params[:cv_id])
     @category_cv = CategoryCv.find(params[:id])
-
-    respond_to do |format|
-      if @category_cv.update_attributes(params[:category_cv])
-        format.html { redirect_to(@category_cv, :notice => 'Category cv was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @category_cv.errors, :status => :unprocessable_entity }
-      end
+    if @category_cv.update_attributes(params[:category_cv])
+      # Save the category_cv successfully
+      redirect_to cv_category_cv_path(@cv, @category_cv)
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /category_cvs/1
-  # DELETE /category_cvs/1.xml
+  # DELETE /cvs/1/category_cvs/2
   def destroy
+    @cv = Cv.find(params[:cv_id])
     @category_cv = CategoryCv.find(params[:id])
     @category_cv.destroy
 
     respond_to do |format|
-      format.html { redirect_to(category_cvs_url) }
+      format.html { redirect_to cv_category_cvs_path(@cv) }
       format.xml  { head :ok }
     end
   end
+
 end

@@ -9,6 +9,7 @@
 
 <% @cvs.each do |cv| %>
   <tr>
+    <td><%= cv.created_at %></td>
     <td><%= link_to 'Show', cv %></td>
     <td><%= link_to 'Edit', edit_cv_path(cv) %></td>
     <td><%= link_to 'Destroy', cv, :confirm => 'Are you sure?', :method => :delete %></td>
