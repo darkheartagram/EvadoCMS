@@ -1,5 +1,43 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |cat| %>
+  <tr>
+    <td><%= cat.name %></td>
+    <td>  <p>Entries</p>
+      <table>
+      <% cat.cv_entries.each do |ent| %>
+        <tr>
+          <td><%= ent.entry %></td>
+           <!--<td><%= link_to 'Show', cv_category_cv_cv_entry_path(@cv, cat, ent) %></td>-->
+            <td><%= link_to 'Edit', edit_cv_category_cv_cv_entry_path(@cv, cat, ent) %></td>
+            <td><%= link_to 'Destroy', cv_category_cv_cv_entry_path(@cv, cat, ent), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+
+            <% end %>
+        <tr><td colspan="4"><td><%= link_to 'New entry', new_cv_category_cv_cv_entry_path(@cv, cat) %></td></tr>
+    </table>
+    </td>
+    <td><%= link_to 'Show', cv_category_cv_path(@cv, cat) %></td>
+    <td><%= link_to 'Edit', edit_cv_category_cv_path(@cv, cat) %></td>
+    <td><%= link_to 'Destroy', cv_category_cv_path(@cv, cat), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+  <tr><td colspan="4"><td><%= link_to 'New category', new_cv_category_cv_path(@cv) %></td></tr>
+</table>
+
+<br />
+
+<%= link_to 'New Cv', new_cv_path %>
 
 <%= link_to 'Edit', edit_cv_path(@cv) %> |
 <%= link_to 'Back', cvs_path %>
+
+
+

@@ -3,15 +3,19 @@ Praca::Application.routes.draw do
 
   resources :articles
 
-  resources :cv_entries
+  #resources :cv_entries
 
-  resources :category_cvs
+  #resources :category_cvs
 
   resources :faqs
 
-  resources :mycvs
+  #resources :mycvs
 
-  resources :cvs
+  resources :cvs do
+    resources :category_cvs do
+      resources :cv_entries
+    end
+  end
 
 	resources :users do
     member do
@@ -21,9 +25,9 @@ Praca::Application.routes.draw do
 
   resources :users
   resources :faqs
-  resources :mycvs
-  resources :category_cvs
-  resources :cv_entries
+  #resources :mycvs
+  #resources :category_cvs
+  #resources :cv_entries
   resources :sessions,      :only => [:new, :create, :destroy]
   resources :microposts,    :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]

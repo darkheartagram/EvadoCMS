@@ -1,4 +1,4 @@
-<h1>Listing category_cvs</h1>
+<h1>Listing categories for <%= @cv.created_at %></h1>
 
 <table>
   <tr>
@@ -21,4 +21,5 @@
 
 <br />
 
-<%= link_to 'New Category cv', new_category_cv_path %>
+<%= link_to 'New category', new_cv_category_cv_path(@cv) %>
+<%= link_to 'Back to Order', @cv %>

@@ -14,7 +14,7 @@ class CvsController < ApplicationController
   # GET /cvs/1.xml
   def show
     @cv = Cv.find(params[:id])
-
+    @categories = @cv.category_cvs
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @cv }

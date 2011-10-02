@@ -1,4 +1,4 @@
-<%= form_for(@cv_entry) do |f| %>
+<%= form_for([@cv, @category_cv, @cv_entry]) do |f| %>
   <% if @cv_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cv_entry.errors.count, "error") %> prohibited this cv_entry from being saved:</h2>
@@ -16,12 +16,8 @@
     <%= f.text_field :entry %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :class %><br />
-    <%= f.text_field :class %>
+    <%= f.label :class_name %><br />
+    <%= f.text_field :class_name %>
   </div>
   <div class="actions">
     <%= f.submit %>

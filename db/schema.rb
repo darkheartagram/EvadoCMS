@@ -22,14 +22,16 @@ ActiveRecord::Schema.define(:version => 20111002081950) do
 
   create_table "category_cvs", :force => true do |t|
     t.string   "name"
+    t.integer  "user_id"
+    t.integer  "cv_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "cv_entries", :force => true do |t|
     t.string   "entry"
-    t.integer  "category_id"
-    t.string   "class"
+    t.integer  "category_cv_id"
+    t.string   "class_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
