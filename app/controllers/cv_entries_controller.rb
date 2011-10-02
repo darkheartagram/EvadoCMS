@@ -1,82 +1,100 @@
 class CvEntriesController < ApplicationController
-  # GET /cv_entries
-  # GET /cv_entries.xml
-  def index
-    @cv_entries = CvEntry.all
+    def index
+    # For URL like /cvs/1/category_cvs
+    # Get the cv with id=1
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @cv_entries }
-    end
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
+    @cv_entries = @category_cv.cv_entries
   end
 
-  # GET /cv_entries/1
-  # GET /cv_entries/1.xml
+  # GET /cvs/1/category_cvs/2
   def show
-    @cv_entry = CvEntry.find(params[:id])
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @cv_entry }
-    end
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
+    @cv_entry = CvEntry.find(params[:id])
   end
 
-  # GET /cv_entries/new
-  # GET /cv_entries/new.xml
+  # GET /cvs/1/category_cvs/new
   def new
-    @cv_entry = CvEntry.new
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @cv_entry }
-    end
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
+
+    # Associate an category_cv object with cv 1
+    @cv_entry = @category_cv.cv_entries.build
   end
 
-  # GET /cv_entries/1/edit
-  def edit
-    @cv_entry = CvEntry.find(params[:id])
-  end
-
-  # POST /cv_entries
-  # POST /cv_entries.xml
+  # POST /cvs/1/category_cvs
   def create
-    @cv_entry = CvEntry.new(params[:cv_entry])
+    @cv = Cv.find(params[:cv_id])
 
-    respond_to do |format|
-      if @cv_entry.save
-        format.html { redirect_to(@cv_entry, :notice => 'Cv entry was successfully created.') }
-        format.xml  { render :xml => @cv_entry, :status => :created, :location => @cv_entry }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @cv_entry.errors, :status => :unprocessable_entity }
-      end
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
+
+    # Associate an category_cv object with cv 1
+    @cv_entry = @category_cv.cv_entries.build(params[:cv_entry])
+
+
+    if @cv_entry.save
+      # Save the category_cv successfully
+      redirect_to cv_category_cv_cv_entries_path(@cv, @category_cv, @cv_entry)
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /cv_entries/1
-  # PUT /cv_entries/1.xml
+  # GET /cvs/1/category_cvs/2/edit
+  def edit
+    @cv = Cv.find(params[:cv_id])
+
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
+    @cv_entry = CvEntry.find(params[:id])
+  end
+
+  # PUT /cvs/1/category_cvs/2
   def update
-    @cv_entry = CvEntry.find(params[:id])
 
-    respond_to do |format|
-      if @cv_entry.update_attributes(params[:cv_entry])
-        format.html { redirect_to(@cv_entry, :notice => 'Cv entry was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @cv_entry.errors, :status => :unprocessable_entity }
-      end
+    @cv = Cv.find(params[:cv_id])
+
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
+
+
+
+    @cv_entry = CvEntry.find(params[:id])
+    if @cv_entry.update_attributes(params[:cv_entry])
+      # Save the category_cv successfully
+      redirect_to cv_path(@cv)
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /cv_entries/1
-  # DELETE /cv_entries/1.xml
+  # DELETE /cvs/1/category_cvs/2
   def destroy
+    @cv = Cv.find(params[:cv_id])
+
+    # Access all category_cvs for that cv
+    @category_cv = CategoryCv.find(params[:category_cv_id])
+
     @cv_entry = CvEntry.find(params[:id])
+
     @cv_entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to(cv_entries_url) }
+      format.html { redirect_to cv_category_cvs_path(@cv) }
       format.xml  { head :ok }
     end
   end
