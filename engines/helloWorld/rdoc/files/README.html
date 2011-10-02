@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Nov 28 23:57:04 +0000 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>A Rails 3 engine</h2>
+<p>
+A rails 3 engine example, where the approaches to test the rails engine
+does not involve embedding an empty rails app in the spec directory instead
+we have followed the style used by DHH in the tolk engine, where the test
+is ran on the rails engine as a stand alone entity. The purpose was to
+illustrate the tolk engine style of implementing test. But this dumy rails
+3 engine can also add an &#8216;about page, a help page and a contacts
+page&#8217; to any rails app you mount the engine on.
+</p>
+<h2>How to install</h2>
+<p>
+Download it to your machine and just add it to your gemfile and do a bundle
+install.
+</p>
+<pre>
+  gem 'dummy', :path =&gt; 'on your machine'
+</pre>
+<p>
+Start your server andpoint it to /pages , about or help for example
+</p>
+<pre>
+ http://localhost:3000/pages
+</pre>
+<p>
+But you can also mount it in your routes as shown below
+</p>
+<p>
+MyRailsApp::Application.routes.draw do
+</p>
+<pre>
+    mount MyEngine::Engine =&gt; &quot;/blog&quot;
+    match &quot;/blog/omg&quot; =&gt; &quot;main#omg&quot;
+  end
+</pre>
+<h2>How to add the functionality to the app</h2>
+<p>
+You can add functionality like you do to any rails app.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
