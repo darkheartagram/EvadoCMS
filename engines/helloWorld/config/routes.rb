@@ -1,42 +1,11 @@
-Praca::Application.routes.draw do
+#Dummy::Application.routes.draw do
+Rails.application.routes.draw do
 
 
-  resources :articles
-
-  resources :cv_entries
-
-  resources :category_cvs
-
-  resources :faqs
-
-  resources :mycvs
-
-  resources :cvs
-
-	resources :users do
-    member do
-      get :following, :followers
-    end
-  end
-
-  resources :users
-  resources :faqs
-  resources :mycvs
-  resources :category_cvs
-  resources :cv_entries
-  resources :sessions,      :only => [:new, :create, :destroy]
-  resources :microposts,    :only => [:create, :destroy]
-  resources :relationships, :only => [:create, :destroy]
-
-  root :to => 'pages#home'
-  match '/signup',  :to => 'users#new'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
-	match '/contact', :to => 'pages#contact'
-  match '/about',   :to => 'pages#about'
-  match '/help',    :to => 'pages#help'
-  get "pages/home"
-  get "pages/contact"
+  
+  match '/test',    :to => 'radek#about'
+  
+ # root :to => 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

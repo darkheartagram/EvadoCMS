@@ -1,0 +1,18 @@
+== A Rails 3 engine
+A rails 3 engine example, where the approaches to test the rails engine does not involve embedding an empty rails app in the spec directory instead we have followed the style used by DHH in the tolk engine, where the test is ran on the rails engine as a stand alone entity. The purpose was to illustrate the tolk engine style of implementing test. But this dumy rails 3 engine can also add an 'about page, a help page and a contacts page' to any rails app you mount the engine on.
+
+== How to install
+Download it to your machine and just add it to your gemfile and do a bundle install.
+  gem 'dummy', :path => 'on your machine'
+  
+Start your server andpoint it to /pages , about or help for example
+ http://localhost:3000/pages
+But you can also mount it in your routes as shown below
+
+MyRailsApp::Application.routes.draw do
+    mount MyEngine::Engine => "/blog"
+    match "/blog/omg" => "main#omg"
+  end
+
+== How to add the functionality to the app
+You can add functionality like you do to any rails app.
