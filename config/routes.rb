@@ -1,4 +1,8 @@
 Praca::Application.routes.draw do
+
+
+  resources :articles
+
   resources :cv_entries
 
   resources :category_cvs
