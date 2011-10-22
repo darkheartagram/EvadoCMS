@@ -46,7 +46,7 @@ class CvEntriesController < ApplicationController
 
     if @cv_entry.save
       # Save the category_cv successfully
-      redirect_to cv_category_cv_cv_entries_path(@cv, @category_cv, @cv_entry)
+      redirect_to cv_path(@cv)
     else
       render :action => "new"
     end

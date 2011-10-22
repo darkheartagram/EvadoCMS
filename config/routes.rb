@@ -1,7 +1,15 @@
 Praca::Application.routes.draw do
 
 
+  match '/theses/tags',  :to => 'theses#tag_cloud'
+  match '/theses/tag/:id' => 'theses#tag'
+  resources :theses  do
+    collection do
+        get :tag
+    end
+  end
   resources :articles
+
 
   #resources :cv_entries
 

@@ -13,7 +13,7 @@
   <tr>
     <td><%= cv_entry.entry %></td>
     <td><%= cv_entry.class %></td>
-    <td><%= link_to 'Show', cv_entry %></td>
+    <td><%= link_to 'Show', cv_category_cv_cv_entry_path(@cv, @category_cv, cv_entry) %></td>
     <td><%= link_to 'Edit', edit_cv_category_cv_cv_entry_path(@cv, @category_cv, cv_entry) %></td>
     <td><%= link_to 'Destroy', cv_category_cv_cv_entry_path(@cv, @category_cv, cv_entry), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Cv entry', new_cv_entry_path %>
+

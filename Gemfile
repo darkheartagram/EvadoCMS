@@ -9,7 +9,8 @@ gem 'sqlite3'
 gem 'wicked_pdf'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
-
+gem 'acts-as-taggable-on', '~>2.1.0'
+gem "paperclip", "~> 2.4"
 group :development do
   gem 'annotate'#, '1.0.4'
   gem 'faker', '0.3.1'
