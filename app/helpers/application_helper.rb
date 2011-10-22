@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+  include ActsAsTaggableOn::TagsHelper
+
   # Return a title on a per-page basis.
   def title
     base_title = "EvadoCMS"
