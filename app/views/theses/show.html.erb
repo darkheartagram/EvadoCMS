@@ -10,6 +10,10 @@
   <%= @thesis.content %>
 </p>
 
+<% for photo in @thesis.photos %>
+  <p><%= image_tag(photo.data(:thumb)) %></p>
+<% end %>
+
 <p><strong>This thesis was tagged with</strong>: <% for tag in @thesis.tags %>
  <%= link_to tag.name,{ :action => 'tag', :id => tag.name } %>
  <% end %>

@@ -1,4 +1,9 @@
 Praca::Application.configure do
+
+  #Paperclip.options[:command_path] = "D:/Projects/Ruby/EvadoCMS/ImageMagick"
+  #Paperclip.options[:log] = true
+  #Paperclip.options[:swallow_stderr] = false
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

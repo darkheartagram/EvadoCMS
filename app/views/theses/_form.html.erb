@@ -1,4 +1,4 @@
-<%= form_for(@thesis) do |f| %>
+<%= form_for @thesis, :html => { :multipart => true } do |f| %>
   <% if @thesis.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@thesis.errors.count, "error") %> prohibited this thesis from being saved:</h2>
@@ -24,6 +24,14 @@
     <%= f.label :content %><br />
     <%= f.text_field :content %>
   </div>
+
+    <div id="photos">
+     <% if @thesis.new_record? %>
+       <%= render :partial => 'photo', :locals => { :form => f, :photo => @thesis.photos.build } %>
+    <% end %>
+  </div>
+  <%= add_object_link("New Photo", f, @thesis.photos.build, "photo", "#photos") %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
