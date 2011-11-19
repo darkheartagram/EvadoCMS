@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @thesis.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @thesis.content %>
+</p>
+
+<% for photo in @thesis.photos %>
+  <p><%= image_tag(photo.data(:thumb)) %></p>
+<% end %>
+
+<p><strong>This thesis was tagged with</strong>: <% for tag in @thesis.tags %>
+ <%= link_to tag.name,{ :action => 'tag', :id => tag.name } %>
+ <% end %>
+</p>
+
+<%= link_to 'Edit', edit_thesis_path(@thesis) %> |
+<%= link_to 'Back', theses_path %>
