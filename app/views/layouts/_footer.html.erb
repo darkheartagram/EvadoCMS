@@ -1,17 +1,14 @@
-<div id="footer">
-	<div class="inside">
-		<div class="left">
-	 		<p><%= footer_logo %></p>
-		</div>
-		<div class="right">
-			<ul>
-				<li class="first-child"></li>
-				<li><%= link_to "About", about_path %></li>
-			  <li><%= link_to "Contact", contact_path %></li>
-				<li><a href="http://agh.edu.pl/pl/wspolpraca.html">Item3</a></li>
-				<li><a href="http://agh.edu.pl/pl/kontakt.html">Item2</a></li>
-				<li><a href="http://agh.edu.pl/pl/webmaster.html">Item1</a></li>
-			</ul>	
-		</div>
-	</div>
 </div>
+    </div>
+    <div class="footer">
+		<div class="copyright">
+        Copyrights <a href="http://ki.agh.edu.pl/">ki.agh.edu.pl</a> 2010-2011
+        </div>
+        <div class="partners">
+        <div style="padding-top:5px; float:left;"><a style="" href="http://agh.edu.pl"><img height="25" border="0" width="89" style="" src="/images/agh_bw.png" onmouseover="this.src='/images/agh_c.png';" onmouseout="this.src='/images/agh_bw.png';"></a></div>
+        <div style="padding-top:8px; float:left;"><a style="" href="http://ki.agh.edu.pl"><img height="25" border="0" width="146" style="padding-left:12px;" src="/images/ki_bw.png" onmouseover="this.src='/images/ki_c.png';" onmouseout="this.src='/images/ki_bw.png';"></a></div>
+        <div style="padding-top:7px; float:left;"><a style="" href="http://eaie.agh.edu.pl"><img height="25" border="0" width="31" style="padding-left:12px;" src="/images/eaie_bw.png" onmouseover="this.src='/images/eaie_c.png';" onmouseout="this.src='/images/eaie_bw.png';"></a></div>
+        <div style="padding-top:6px; float:left;"><a style="" href="http://informatyka.agh.edu.pl"><img height="25" border="0" width="79" style="padding-left:12px;" src="/images/inf_bw.png" onmouseover="this.src='/images/inf_c.png';" onmouseout="this.src='/images/inf_bw.png';"></a></div>
+        </div>
+    </div>
+<div class="debug"><%= debug(params) if Rails.env.development? %> </div>

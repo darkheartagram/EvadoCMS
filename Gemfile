@@ -17,7 +17,7 @@ group :development do
 end
 
 
-gem 'dummy', :path => './engines/helloWorld'
+#gem 'dummy', :path => './engines/helloWorld'
 
 # Use unicorn as the web server
 # gem 'unicorn'
